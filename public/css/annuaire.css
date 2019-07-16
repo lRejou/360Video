@@ -1,0 +1,81 @@
+.annuaire-haut{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+}
+.annuaire-haut > div{
+    width: 500px;
+    height: 180px;
+}
+.annuaire-haut > .title-annuaire{
+    text-align: left;
+}
+.annuaire-haut > .filtre-annuaire{
+    padding-top: 30px;
+    text-align: right;
+}
+.annuaire-haut > .filtre-annuaire > span{
+    margin: 20px 0px;
+    display: inline-block;
+}
+.annuaire-haut > div input{
+   display: none;
+}
+.filtre-annuaire > div > label > i{
+    display: block;
+    color: #159CDC;
+    font-size: 20px;
+    transition: .5s;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+input[id=filtreDate]:checked ~ div > #checkboxDate > i{
+    transition: .5s;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+input[id=filtreNote]:checked ~ div > #checkboxNote > i{
+    transition: .5s;
+    transform: rotate(0deg);
+    opacity: 1;
+}
+
+.container-video{
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.container-video > a{
+    text-decoration: none;
+    height: 300px;
+    width: 200px;
+    color: #159CDC;
+    background-color: white;
+    margin: 30px;
+    box-shadow: 0px 0px 0px grey;
+    transition: .3s;
+}
+.container-video > a:hover{
+    box-shadow: 0px 0px 5px grey;
+    transition: .3s;
+}
+.container-video > a > img{
+    width: 200px;
+}
+.container-video > a > .annuaire-dateVideo{
+    display: inline-block;
+    height: 10px;
+    width: 100%;
+    margin-left: 10px;
+    color: grey;
+    font-size: 8px;
+    text-align: left;
+}
+.container-video > a > .annuaire-titreVideo{
+    font-size: 12px;
+    display: inline-block;
+}
