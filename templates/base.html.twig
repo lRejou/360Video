@@ -3,9 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/home.css') }}" rel="stylesheet" />
         <link href="{{ asset('fontawesome-free-5.9.0-web/css/all.css') }}" rel="stylesheet" />
+        
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -26,6 +34,9 @@
 
 
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+        <script src="{{ asset('js/slider/init.js') }}"></script>
+        
+        {% endblock %}
     </body>
 </html>

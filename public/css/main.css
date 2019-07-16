@@ -18,3 +18,33 @@ body{
     height: auto;
     text-align: center;
 }
+
+.button1{
+    padding: 5px 15px;
+    background-color: #159CDC;
+    color: white;
+    text-decoration: none;
+    width: auto;
+    border: solid 1px #159CDC;
+    transition: .3s;
+}
+.button1:hover{
+    background-color: white;
+    color: #159CDC;
+    transition: .3s;
+}
+
+.button2{
+    padding: 5px 15px;
+    background-color: white;
+    color: #159CDC;
+    text-decoration: none;
+    width: auto;
+    border: solid 1px white;
+    transition: .3s;
+}
+.button2:hover{
+    background-color: white;
+    color: #42382B;
+    transition: .3s;
+}

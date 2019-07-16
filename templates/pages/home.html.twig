@@ -2,15 +2,52 @@
 
 {% block body%}
 
-<h1>Page d'accueil</h1>
-
 <div id="container">
 
     <div class="slider">
-        <div>
+        <div class="silde-buttonright"> <i class="fas fa-chevron-right"></i> </div>
+        <div class="slide-buttonleft"> <i class="fas fa-chevron-left"></i> </div>
+        <div class="slider-img1 slideimg">
+            <img src="{{ asset('images/slide_IMG1.png') }}" />
+            <div class="slider_texte">
+                <span class="slider_titre1">
+                    Titre du Siteweb
+                </span>
+                <span class="slider_titre2">
+                    Petit message pour l'application blabla
+                </span>
+            </div>
         </div>
-        <div>
+        <div class="slider-img2 slideimg">
+        slide 2
         </div>
+    </div>
+
+
+    <div class="topVideo">
+        <h2>Nos meilleures vidéos</h2>
+
+        <div>
+            <div class="topVideo_div">
+                <img src="https://img.youtube.com/vi/tgwW2RnqYcY/0.jpg" alt="image vidéo top 1"/>
+                <span>Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</span>
+            </div>
+            <div class="topVideo_div">
+                <img src="https://img.youtube.com/vi/-xNN-bJQ4vI/0.jpg" alt="image vidéo top 2"/>
+                <span>Mega Coaster: Get Ready for the Drop (360 Video)</span>
+            </div>
+            <div class="topVideo_div">
+                <img src="https://img.youtube.com/vi/-_nhjmLeGYw/0.jpg" alt="image vidéo top 3"/>
+                <span>Dunkerque - 360° Vidéo Expérience - Gardez Votre Souffle</span>
+            </div>
+        </div>
+        <a class="button1" href="/annuaire"> <i class="fas fa-film"></i> Voir plus de vidéos</a>
+    </div>
+
+    <div class="tuto">
+        <h2>Comment ça marche ?</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac imperdiet risus, non interdum orci. In hac habitasse platea dictumst. Curabitur id lorem id metus convallis cursus eu nec odio. Aliquam erat volutpat. Curabitur rutrum nisi risus, id convallis augue aliquam vitae. In in nibh ut sem tincidunt vulputate quis sit amet turpis. Nam orci turpis, consequat quis odio vitae, luctus blandit neque. Mauris aliquet elit mi, a vestibulum leo rutrum nec. </p>
+        <a class="button2" href="/tuto">Comment poster une vidéo ?</a>
     </div>
 
 
