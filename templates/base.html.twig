@@ -3,9 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
+        <link href="{{ asset('fontawesome-free-5.9.0-web/css/all.css') }}" rel="stylesheet" />
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+        <header>
+            <div>
+                <a href="/">
+                    <img src="{{ asset('images/LogoIUT80px.png') }}" alt="logo IUT Université de Bordeaux"/>
+                </a>
+                <div>
+                    <a href="/annuaire" class="header-link"> <i class="fas fa-film"></i> Nos Vidéos</a>
+                    <a href="/tuto" class="header-link"> Comment poster une vidéo ?</a>
+                    <a href="/addvideo" class="header-addvideo"> <i class="fas fa-upload"></i> </a>
+                </div>
+            </div>
+        </header>
+
+
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

@@ -16,15 +16,15 @@ cgu:
 
 video:
   path: /video
-  controller: App\Controller\AdminController::
+  controller: App\Controller\HomeController::
 
 addvideo:
   path: /addvideo
-  controller: App\Controller\AdminController::addvideo
+  controller: App\Controller\HomeController::addvideo
 
 login:
   path: /login
-  controller: App\Controller\AdminController::login
+  controller: App\Controller\HomeController::login
 
 admin:
   path: /admin/
