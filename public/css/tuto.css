@@ -1,0 +1,31 @@
+.container > .tuto-haut{
+    width: 80%;
+    margin: 20px auto;
+}
+
+.tuto-flexcontainer{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 60px auto;
+}
+
+.tuto-flexcontainer > .texteright{
+    width: 500px;
+    margin: 0 30px;
+    text-align: left;
+}
+.tuto-flexcontainer > .texteleft{
+    width: 500px;
+    margin: 0 30px;
+    text-align: right;
+}
+.tuto-flexcontainer > div > p{
+    font-size: 14px;
+}
+.tuto-flexcontainer > div > img{
+    height: 200px;
+}
+.tuto-posteVideo{
+    margin-bottom: 100px;
+}
