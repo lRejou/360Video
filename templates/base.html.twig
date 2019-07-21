@@ -8,6 +8,7 @@
 
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/footer.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/home.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/annuaire.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/tuto.css') }}" rel="stylesheet" />
@@ -37,6 +38,32 @@
 
 
         {% block body %}{% endblock %}
+
+        <footer>
+            <div class="footer-firstpart">
+                <div>
+                    <img src="{{ asset('images/LogoIUT80px.png') }}" alt="logo IUT Université de Bordeaux"/>
+                </div>
+                <div class="footer-rs">
+                    <span>Réseau sociaux :</span><br>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                </div>
+                <div class="footerpagesite">
+                    <span>Page : </span>
+                    <a href="/">Accueil</a>
+                    <a href="/annuaire">Nos vidéos</a>
+                    <a href="/addvideo">Ajouter une vidéo</a>
+                    <a href="/cgu">Condition général d'utilisation</a>
+                </div>
+            </div>
+
+            <div class="footer-secondpart">
+                copyright
+            </div>
+        </footer>
+
+
         {% block javascripts %}
         <script src="{{ asset('js/slider/init.js') }}"></script>
         
