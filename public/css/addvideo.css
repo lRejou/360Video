@@ -1,0 +1,52 @@
+.addvideo-haut{
+    width: 80%;
+    margin: 0 auto;
+}
+.addvideo-haut > p{
+    font-size: 14px;
+}
+
+.container-addvideo{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 50px auto;
+}
+.container-addvideo > div{
+    width: 500px;
+}
+.addvideo-form > form > div > span{
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+    display: block;
+}
+.addvideo-form > form > div > input[type=text] , textarea{
+    width: 300px;
+}
+.addvideo-form > form > div > span{
+    padding-top: 15px;
+}
+.addvideo-cgu{
+    font-size: 12px;
+}
+.addvideo-cgu .spancgu{
+    display: inline-block;
+}
+
+
+
+
+
+.addvideo-tuto > div{
+    height: auto;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 5px 7px grey;
+    padding: 30px 20px ;
+}
+.addvideo-tuto p {
+    font-size: 12px;
+    padding: 25px 0px;
+}
+
