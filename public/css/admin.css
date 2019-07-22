@@ -1,0 +1,52 @@
+header{
+    width: 100%;
+    height: 60px;
+    background-color:#159CDC ;
+}
+header > div{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+}
+header > div > h1{
+    margin: 0;
+    font-size: 30px;
+    display: block;
+    width: auto;
+    height: 60px;
+    line-height: 60px;
+    color: white;
+}
+header > div > div{
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+    height: 60px;
+    line-height: 60px;
+}
+header > div > div > a{
+    color: white;
+}
+
+
+.container > div{
+    width: 1024px;
+    margin: 50px auto;
+}
+.accueil-container{
+    width: 100%;
+    height: auto;
+}
+.accueil-container > div{
+    height: auto;
+    width: 100%;
+    padding: 5px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px grey;
+}
+.accueil-container > div > span{
+    font-size: 15px;
+    display: block;
+}
