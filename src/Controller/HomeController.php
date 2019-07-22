@@ -2,6 +2,8 @@
 namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
+use App\Entity\Video;
+use App\Repository\VideoRepository;
 
 class HomeController 
 {
@@ -21,9 +23,12 @@ class HomeController
         return new Response($this->twig->render('pages/home.html.twig'));
     }
 
-    public function annuaire(): Response
+    public function annuaire(VideoRepository $videoRepository): Response
     {
-        return new Response($this->twig->render('pages/annuaire.html.twig'));
+        return new Response($this->twig->render('pages/annuaire.html.twig', [
+            'videos' => $videoRepository->findAll()
+        ]));
+        //return new Response($this->twig->render('pages/annuaire.html.twig'));
     }
 
     public function tuto(): Response
