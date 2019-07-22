@@ -50,3 +50,17 @@ header > div > div > a{
     font-size: 15px;
     display: block;
 }
+
+
+
+.video-container > .video-div-iframe{
+    margin: 0 auto;
+    width: 500px;
+}
+.video-container > .video-div-iframe > iframe{
+    width: 500px;
+    height: 350px;
+}
+.video-container > .video-div-button{
+    text-align: center;
+}

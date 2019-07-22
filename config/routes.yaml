@@ -30,6 +30,10 @@ admin:
   path: /admin/
   controller: App\Controller\AdminController::index
 
+videoadmin:
+  path: /admin/video
+  controller: App\Controller\AdminController::video
+
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index

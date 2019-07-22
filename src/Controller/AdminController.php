@@ -21,4 +21,9 @@ class AdminController
         return new Response($this->twig->render('admin/home.html.twig'));
     }
 
+    public function video(): Response
+    {
+        return new Response($this->twig->render('admin/video.html.twig'));
+    }
+
 }
