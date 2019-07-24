@@ -14,9 +14,9 @@ cgu:
   path: /cgu
   controller: App\Controller\HomeController::cgu
 
-video:
-  path: /video
-  controller: App\Controller\HomeController::
+#video:
+#  path: /video
+#  controller: App\Controller\HomeController::video
 
 addvideo:
   path: /addvideo

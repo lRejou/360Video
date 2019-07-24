@@ -28,7 +28,6 @@ class HomeController
         return new Response($this->twig->render('pages/annuaire.html.twig', [
             'videos' => $videoRepository->findAll()
         ]));
-        //return new Response($this->twig->render('pages/annuaire.html.twig'));
     }
 
     public function tuto(): Response

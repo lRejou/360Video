@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideoController!{% endblock %}
+
+{% block body %}
+
+
+<div class="container">
+    <div class="video-container">
+        <h1>{{ video.name }}</h1>
+        <span>date : {{video.date ? video.date|date('d/m/Y H:i:s') : '' }}</span>
+        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <p>{{ video.description }}</p>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+.video-container{
+    width: 1024px;
+    height: auto;
+    margin: 50px auto;
+}
+.video-container > h1{
+    color: #159CDC;
+    font-size: 25px;
+}
+.video-container > span{
+    color: grey;
+    font-size: 12px;
+}
+.video-container > iframe{
+    width: 1024px;
+}
+.video-container > p{
+    font-size: 15px;
+}
