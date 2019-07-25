@@ -11,31 +11,31 @@
 
     <div class="container-addvideo">
         <div class="addvideo-form">
-            <form>
+            <form action="{{ path('validation') }}" method="post" name="formulaire_addvideo">
                 <div>
                     <span>Votre pseudo</span>
-                    <input type="text"/>
+                    <input type="text" name="pseudo"/>
                 </div>
                 <div>
                     <span>Titre de la vidéo</span>
-                    <input type="text"/>
+                    <input type="text" name="titre"/>
                 </div>
                 <div>
                     <span>Lien de la vidéo</span>
-                    <input type="text"/>
+                    <input type="text" name="link"/>
                 </div>
                 <div>
                     <span>Description de la vidéo</span>
-                    <textarea></textarea>
+                    <textarea name="description"></textarea>
                 </div>
                 <div class="addvideo-cgu">
-                    <input type="checkbox"><span class="spancgu">Je comfirme avec pris concience des CGU</span>
+                    <input type="checkbox" name="cgu"><span class="spancgu">Je comfirme avec pris concience des CGU</span>
                 </div>
                 <div>
                     captcha
                 </div>
                 <div>
-                    <input class="button1" type="submit"/>
+                    <input class="button1" name="validation" type="submit"/>
                 </div>
             </form>
         </div>

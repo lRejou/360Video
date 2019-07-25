@@ -1,30 +1,6 @@
-home:
-  path: /
-  controller: App\Controller\HomeController::index
-
-annuaire:
-  path: /annuaire
-  controller: App\Controller\HomeController::annuaire
-
-tuto:
-  path: /tuto
-  controller: App\Controller\HomeController::tuto
-
-cgu:
-  path: /cgu
-  controller: App\Controller\HomeController::cgu
-
-#video:
-#  path: /video
-#  controller: App\Controller\HomeController::video
-
-addvideo:
-  path: /addvideo
-  controller: App\Controller\HomeController::addvideo
-
-login:
-  path: /login
-  controller: App\Controller\HomeController::login
+#home:
+#  path: /
+#  controller: App\Controller\HomeController::index
 
 admin:
   path: /admin/
