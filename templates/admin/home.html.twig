@@ -7,25 +7,14 @@
         <h2>Proposition vidéos</h2>
         <div class="accueil-container">
 
-            <div>
-                <span>image : Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</span>
-                <a href="#" class="button1" >Voir la vidéo</a>
-            </div>
 
-            <div>
-                <span>image : Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</span>
-                <a href="#" class="button1" >Voir la vidéo</a>
-            </div>
 
+        {% for videoUser in videosUser  %}
             <div>
-                <span>image : Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</span>
-                <a href="#" class="button1" >Voir la vidéo</a>
+                <span>{{videoUser.name}}</span>
+                <a href="video/{{videoUser.id}}" class="button1" >Voir la vidéo</a>
             </div>
-
-            <div>
-                <span>image : Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</span>
-                <a href="#" class="button1" >Voir la vidéo</a>
-            </div>
+        {% endfor %}
 
 
         </div>

@@ -4,11 +4,11 @@
 <div class="container">
     <div class="video-container">
 
-    <h2>image : Vidéo 360° : visiter des lieux touristiques grâce à la technologie d'Inception</h2>
+    <h2>{{ video.name }}</h2>
     <div class="video-div-iframe">
-        <iframe src="https://www.youtube.com/embed/tgwW2RnqYcY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <p>Description de la video Description de la video Description de la video Description de la video Description de la video <br>Description de la video Description de la video </p>
+    <p>{{ video.description }}</p>
 
     <div class="video-div-button">
         <button class="button1">Valider cette vidéo</button>
