@@ -14,19 +14,19 @@
             <form action="{{ path('validation') }}" method="post" name="formulaire_addvideo">
                 <div>
                     <span>Votre pseudo</span>
-                    <input type="text" name="pseudo"/>
+                    <input type="text" name="pseudo" required="required"/>
                 </div>
                 <div>
                     <span>Titre de la vidéo</span>
-                    <input type="text" name="titre"/>
+                    <input type="text" name="titre" required="required"/>
                 </div>
                 <div>
                     <span>Lien de la vidéo</span>
-                    <input type="text" name="link"/>
+                    <input type="text" name="link" required="required"/>
                 </div>
                 <div>
                     <span>Description de la vidéo</span>
-                    <textarea name="description"></textarea>
+                    <textarea name="description" required="required"></textarea>
                 </div>
                 <div class="addvideo-cgu">
                     <input type="checkbox" name="cgu"><span class="spancgu">Je comfirme avec pris concience des CGU</span>

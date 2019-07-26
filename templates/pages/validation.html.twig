@@ -2,7 +2,27 @@
 
 {% block body%}
 
-<h1>OK ! </h1>
+<div class="container">
+<div class="validationContainer">
+{% if message == "accept" %}
+   <span class="acceptMSG">Votre vidéo a été accepté ! </span><br>
+   <span>Votre vidéo est en cour de validation. Elle apparaitra dans les prochains jours sur notre site si elle est conforme au réglement</span>
+       <div class="buttonContainer">
+        <a href="/annuaire" class="button1"> Retour à la liste des vidéos </a>
+    </div>
+{% else %}
+   <span class="errorMSG">Vous n'avez pas remplie tout les champs du formulaire.</span>
+    <div class="buttonContainer">
+        <a href="/addvideo" class="button1"> Retour </a>
+    </div>
+
+
+{% endif %}
+</div>
+</div>
+
+
+
 
 
 {% endblock %}

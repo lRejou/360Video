@@ -1,0 +1,19 @@
+.validationContainer{
+    height: 1000px;
+    margin: 50px auto;
+    text-align: center;
+}
+.errorMSG{
+    color: red;
+    text-align: center;
+    font-size: 25px;
+}
+
+.acceptMSG{
+    color: green;
+    text-align: center;
+    font-size: 25px;
+}
+.buttonContainer{
+    margin: 40px auto;
+}

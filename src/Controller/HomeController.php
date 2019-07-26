@@ -78,29 +78,40 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/validation", name="validation", methods={"POST"})
+     * @Route("/validation", name="validation", methods={"POST" , "GET"})
      */
     public function validation(VideoRepository $videoRepository, Request $request)
     {
-
-
         $date = new \DateTime();
         $currentDate = $date->format('Y-m-d');
 
-        $video3D = new video();
-        $video3D->setName($request->get('titre'));
-        $video3D->setNickname($request->get('pseudo'));
-        $video3D->setDescription($request->get('description'));
-        $video3D->setLink($request->get('link'));
-        $video3D->setDate($date);
+        if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('description')) && !empty($request->get('link'))){
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($video3D);
-        $em->flush();
+            $video3D = new video();
+            $video3D->setName($request->get('titre'));
+            $video3D->setNickname($request->get('pseudo'));
+            $video3D->setDescription($request->get('description'));
+            $video3D->setLink($request->get('link'));
+            $video3D->setDate($date);
+    
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($video3D);
+            $em->flush();
 
+            $message = "accept";
 
+        }
+        else{
 
-        return new Response($this->twig->render('pages/validation.html.twig'));
+            $message = "error";
+
+        }
+
+        return $this->render('pages/validation.html.twig', [
+            'message' => $message
+        ]);
+
+        //return new Response($this->twig->render('pages/validation.html.twig'));
     }
 
 
