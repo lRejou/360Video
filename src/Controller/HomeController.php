@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Twig\Environment;
 use App\Entity\Video;
 use App\Repository\VideoRepository;
+use App\Entity\VideoUser;
+use App\Repository\VideoUserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -80,19 +82,19 @@ class HomeController extends AbstractController
     /**
      * @Route("/validation", name="validation", methods={"POST" , "GET"})
      */
-    public function validation(VideoRepository $videoRepository, Request $request)
+    public function validation(VideoUserRepository $videoUserRepository, Request $request)
     {
-        $date = new \DateTime();
-        $currentDate = $date->format('Y-m-d');
+        //$date = new \DateTime();
+        //$currentDate = $date->format('Y-m-d');
 
         if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('description')) && !empty($request->get('link'))){
 
-            $video3D = new video();
+            $video3D = new videouser();
             $video3D->setName($request->get('titre'));
             $video3D->setNickname($request->get('pseudo'));
             $video3D->setDescription($request->get('description'));
             $video3D->setLink($request->get('link'));
-            $video3D->setDate($date);
+            //$video3D->setDate($date);
     
             $em = $this->getDoctrine()->getManager();
             $em->persist($video3D);
