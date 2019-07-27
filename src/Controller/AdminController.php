@@ -8,6 +8,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\VideoUser;
 use App\Repository\VideoUserRepository;
+use App\Entity\Video;
+use App\Repository\VideoRepository;
 
 /**
  * @Route("/admin")
@@ -45,6 +47,46 @@ class AdminController extends AbstractController
             )
         ]);
         //return new Response($this->twig->render('admin/video.html.twig'));
+    }
+
+    /**
+     * @Route("/validationVideoAdmin/{id}", name="admin_Valisationvideo", methods={"GET"})
+     */
+    public function validationVideo(VideoUserRepository $videoUserRepository, VideoUser $videoUser, VideoRepository $videoRepository, Video $video): Response
+    {
+        $video =  $videoUserRepository->findOneBy(['id' => $videoUser->getId()]);
+
+        $date = new \DateTime();
+
+        $video3D = new video();
+        $video3D->setName($video->getName());
+        $video3D->setNickname($video->getNickname());
+        $video3D->setDescription($video->getDescription());
+        $video3D->setLink($video->getLink());
+        $video3D->setDate($date);
+    
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($video3D);
+        $em->flush();
+
+        $em->remove($video);
+        $em->flush();
+
+        return $this->render('admin/validationVideo.html.twig');
+    }
+
+    /**
+     * @Route("/deleteVideoAdmin/{id}", name="admin_Deletevideo", methods={"GET"})
+     */
+    public function deleteVideoAdmin(VideoUserRepository $videoUserRepository, VideoUser $videoUser): Response
+    {
+        $video =  $videoUserRepository->findOneBy(['id' => $videoUser->getId()]);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($video);
+        $em->flush();
+
+        return $this->render('admin/deleteVideo.html.twig');
     }
 
 }
