@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Video;
 use App\Repository\VideoRepository;
+use App\Entity\Note;
+use App\Repository\NoteRepository;
+
 
 
 /**
@@ -27,10 +30,17 @@ class VideoController extends AbstractController
      * @Route("/{id}", name="video_show", methods={"GET"})
      */
     public function show(VideoRepository $videoRepository, Video $video){
-        return $this->render('video/index.html.twig', [
-            'video' => $videoRepository->findOneBy(
-                ['id' => $video->getId()]
-            )
-        ]);
+        $video360 = $videoRepository->findOneBy(['id' => $video->getId()]);
+
+        $notes = $video360->getNotes();
+        $moy = 0;
+        $nbNote = count($notes);
+        foreach ($notes as $note){
+            $moy = $moy + $note->getNote();
+        }
+        $moy = $moy / $nbNote;
+        $tableMoy = ['moy' => round($moy, 1) , 'nbNote' => $nbNote];
+
+        return $this->render('video/index.html.twig', ['video' => $video , 'moyNotes' => $tableMoy]);
     }
 }

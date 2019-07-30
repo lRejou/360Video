@@ -17,3 +17,39 @@
 .video-container > p{
     font-size: 15px;
 }
+
+.video-noteContainer{
+    height: 50px;
+    width: 250px;
+    margin-right:0;
+    margin-left:auto;
+    position: relative;
+}
+.video-noteContainer > .barrenote{
+    position: absolute;
+    width: 80%;
+    top: 5px;
+    left: 0;
+    height: 10px;
+    background-color: #eaeaea;
+    border-radius: 5px;
+}
+.video-noteContainer > .barrenote > div{
+    height: 10px;
+    background-color:  #2ecc71 ;
+    border-radius: 5px;
+}
+.video-noteContainer > .moyNote{
+    width: 20%;
+    position: absolute;
+    top: 0px;
+    left: 85%;
+    font-size: 12px;
+}
+.nbNote{
+    position: absolute;
+    font-size: 12px;
+    color: grey;
+    top: 12px;
+    left: 2%;
+}
