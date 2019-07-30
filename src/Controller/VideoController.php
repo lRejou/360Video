@@ -38,7 +38,9 @@ class VideoController extends AbstractController
         foreach ($notes as $note){
             $moy = $moy + $note->getNote();
         }
-        $moy = $moy / $nbNote;
+        if( $moy != 0 ){
+            $moy = $moy / $nbNote;
+        }
         $tableMoy = ['moy' => round($moy, 1) , 'nbNote' => $nbNote];
 
         return $this->render('video/index.html.twig', ['video' => $video , 'moyNotes' => $tableMoy]);
