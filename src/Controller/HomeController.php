@@ -40,8 +40,11 @@ class HomeController extends AbstractController
      */
     public function annuaire(VideoRepository $videoRepository): Response
     {
+        $videos360 = $videoRepository->findAll();
+
+    
         return new Response($this->twig->render('pages/annuaire.html.twig', [
-            'videos' => $videoRepository->findAll()
+            'videos' => $videos360
         ]));
     }
 
