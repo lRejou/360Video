@@ -32,17 +32,6 @@ class VideoController extends AbstractController
     public function show(VideoRepository $videoRepository, Video $video){
         $video360 = $videoRepository->findOneBy(['id' => $video->getId()]);
 
-        $notes = $video360->getNotes();
-        $moy = 0;
-        $nbNote = count($notes);
-        foreach ($notes as $note){
-            $moy = $moy + $note->getNote();
-        }
-        if( $moy != 0 ){
-            $moy = $moy / $nbNote;
-        }
-        $tableMoy = ['moy' => round($moy, 1) , 'nbNote' => $nbNote];
-
-        return $this->render('video/index.html.twig', ['video' => $video , 'moyNotes' => $tableMoy]);
+        return $this->render('video/index.html.twig', ['video' => $video]);
     }
 }
