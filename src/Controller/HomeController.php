@@ -65,14 +65,6 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/login", name="login")
-     */
-    public function login(): Response
-    {
-        return new Response($this->twig->render('pages/login.html.twig'));
-    }
-
-    /**
      * @Route("/cgu", name="cgu")
      */
     public function cgu(): Response
