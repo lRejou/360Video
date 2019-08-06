@@ -9,6 +9,8 @@ use App\Entity\Video;
 use App\Repository\VideoRepository;
 use App\Entity\VideoUser;
 use App\Repository\VideoUserRepository;
+use App\Entity\Note;
+use App\Repository\NoteRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -107,6 +109,31 @@ class HomeController extends AbstractController
         ]);
 
         //return new Response($this->twig->render('pages/validation.html.twig'));
+    }
+
+    /**
+     * @Route("/vote/{id}/{note}", name="vote" , methods={"GET"})
+     */
+    public function vote(Request $request, NoteRepository $noteRepository, VideoRepository $videoRepository)
+    {
+
+        $video360 = $videoRepository->findOneBy(['id' => $request->get('id')]);
+
+        $noteVideo = new Note();
+        $noteVideo->setVideo($video360);
+        $noteVideo->setNote($request->get('note'));
+        $noteVideo->setUser('21.20.20.20');
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($noteVideo);
+        $em->flush();
+
+        $message = "Votre note a bien été prise en compte";
+
+        return $this->render('pages/vote.html.twig', [
+            'message' => $message
+        ]);
     }
 
 

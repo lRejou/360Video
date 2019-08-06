@@ -53,3 +53,93 @@
     top: 12px;
     left: 2%;
 }
+
+.buttonvote{
+    position: absolute;
+    font-size: 12px;
+    color: grey;
+    top: 30px;
+    right: 2%;
+    color: white;
+}
+
+#modalVote{
+    display: none;
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+#modalVote > div{
+    height: 100px;
+    width: 400px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    z-index: 1000;
+    padding: 10px 30px;
+}
+#modalVote > div .buttonClose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color:  #e74c3c ;
+    border: solid 3px white;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
+#modalVote > div .buttonClose > i{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#modalVote > div > .zoneVote{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    padding-top: 30px;
+}
+
+#modalVote > div > div > .voteCercle{
+    height: 30px;
+    width: 30px;
+    background-color:  #7dcea0 ;
+    border-radius: 50%;
+    margin: 0px 10px;
+    position: relative;
+    cursor: pointer;
+    transition: .3s;
+}
+#modalVote > div > div > .voteCercle:hover{
+    box-shadow: 0px 0px 4px grey;
+    transition: .3s;
+}
+#modalVote > div > div > .voteCercle > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+@keyframes openModal{
+    0%{
+        top: 40%;
+        opacity: 0;
+    }
+    100%{
+        top: 50%;
+        opacity: 1;
+    }
+}

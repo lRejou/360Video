@@ -30,6 +30,7 @@ class VideoController extends AbstractController
      * @Route("/{id}", name="video_show", methods={"GET"})
      */
     public function show(VideoRepository $videoRepository, Video $video){
+        
         $video360 = $videoRepository->findOneBy(['id' => $video->getId()]);
 
         return $this->render('video/index.html.twig', ['video' => $video]);

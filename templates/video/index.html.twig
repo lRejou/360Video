@@ -24,8 +24,25 @@
                 <div class="barrenote"><div style="width:{{ Poucent }}%;" ></div></div>
                 <div class="moyNote">{{ somme|round(1, 'common') }} / 5</div>
                 <div class="nbNote">{{ video.notes|length }} avis</div>
+                <button id="buttonVote" class="button1 buttonvote">Votez</button>
             </div>
         {% endif %}
+
+
+        <div id="modalVote">
+            <div>
+                <div class="buttonClose"><i class="fas fa-times"></i></div>
+                Choisissez une note :
+                <div class="zoneVote">
+                    <div id="vote1" class="voteCercle"><div>1</div></div>
+                    <div id="vote2" class="voteCercle"><div>2</div></div>
+                    <div id="vote3" class="voteCercle"><div>3</div></div>
+                    <div id="vote4" class="voteCercle"><div>4</div></div>
+                    <div id="vote5" class="voteCercle"><div>5</div></div>
+                    /5
+                </div>
+            </div>
+        </div>
 
 
 
@@ -35,5 +52,10 @@
 
     </div>
 </div>
+
+<script>
+    var page = {{ video.id }};
+</script>
+
 
 {% endblock %}
