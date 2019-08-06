@@ -16,7 +16,12 @@
             {% set somme = somme + note.note %}
         {% endfor %}
         {% if somme == 0 %}
-            0
+            <div class="video-noteContainer">
+                <div class="barrenote"><div style="width:0%;" ></div></div>
+                <div class="moyNote">0 / 5</div>
+                <div class="nbNote">0 avis</div>
+                <button id="buttonVote" class="button1 buttonvote">Votez</button>
+            </div>
         {% else %}
             {% set somme = somme / video.notes|length %}
             <div class="video-noteContainer">
