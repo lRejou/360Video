@@ -136,5 +136,20 @@ class HomeController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/loadvideo/{nb}", name="loadvideo" , methods={"GET"})
+     */
+    public function loadVideo(Request $request, VideoRepository $videoRepository)
+    {
+
+        $videos360 = $videoRepository->findAll();
+
+    
+        return new Response($this->twig->render('pages/loadvideo.html.twig', [
+            'videos' => $videos360
+        ]));
+    }
+
+
 
 }
