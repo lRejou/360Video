@@ -22,19 +22,31 @@ class VideoRepository extends ServiceEntityRepository
     // /**
     //  * @return Video[] Returns an array of Video objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByDates($start, $count)
     {
         return $this->createQueryBuilder('v')
-            ->andWhere('v.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('v.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('v.date', 'DESC')
+            ->setFirstResult($start)
+            ->setMaxResults($count)
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    // /**
+    //  * @return Video[] Returns an array of Video objects
+    //  */
+    
+    public function findByNotes($start, $count)
+    {
+
+
+        /*$dql = 'SELECT video.name , (AVG(note.note) From video JOIN note on note.id_video = video.id Group by video.name';
+        $query = $this->getEntityManager()->createQuery($dql);
+        return $query->execute();*/
+    }
+    
 
     /*
     public function findOneBySomeField($value): ?Video

@@ -137,12 +137,23 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/loadvideo/{nb}", name="loadvideo" , methods={"GET"})
+     * @Route("/loadvideo/{nb}/{loadBy}", name="loadvideo" , methods={"GET"})
      */
     public function loadVideo(Request $request, VideoRepository $videoRepository)
     {
+        $nbload = $request->get('nb');
+        if($nbload == 0){
+            $nbload = 0;
+        }
+        $count = 5;
+        $nbload = $nbload*$count ;
 
-        $videos360 = $videoRepository->findAll();
+        if($request->get('loadBy') == "date" ){
+            $videos360 = $videoRepository->findByDates($nbload, $count);
+        }
+        else{
+            $videos360 = $videoRepository->findByNotes($nbload, $count);
+        }
 
     
         return new Response($this->twig->render('pages/loadvideo.html.twig', [
