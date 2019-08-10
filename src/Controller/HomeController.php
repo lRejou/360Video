@@ -116,20 +116,30 @@ class HomeController extends AbstractController
      */
     public function vote(Request $request, NoteRepository $noteRepository, VideoRepository $videoRepository)
     {
-
+        $adressIP = $_SERVER['REMOTE_ADDR'];
         $video360 = $videoRepository->findOneBy(['id' => $request->get('id')]);
+        $allNotebyIP = $noteRepository->findBy(['video' => $video360 , 'user' => $adressIP ]);
 
-        $noteVideo = new Note();
-        $noteVideo->setVideo($video360);
-        $noteVideo->setNote($request->get('note'));
-        $noteVideo->setUser('21.20.20.20');
+        if(count($allNotebyIP) > 2){
+            $message = "Vous avez deja voté 3 fois pour cette video";
+        }
+        else{
+            $video360 = $videoRepository->findOneBy(['id' => $request->get('id')]);
 
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($noteVideo);
-        $em->flush();
-
-        $message = "Votre note a bien été prise en compte";
+            $noteVideo = new Note();
+            $noteVideo->setVideo($video360);
+            $noteVideo->setNote($request->get('note'));
+            $noteVideo->setUser($adressIP);
+    
+    
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($noteVideo);
+            $em->flush();
+    
+            $message = "Votre note a bien été prise en compte";
+    
+        }
 
         return $this->render('pages/vote.html.twig', [
             'message' => $message
@@ -153,6 +163,7 @@ class HomeController extends AbstractController
         }
         else{
             $videos360 = $videoRepository->findByNotes($nbload, $count);
+            var_dump($videos360);
         }
 
     
