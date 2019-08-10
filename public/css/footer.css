@@ -12,19 +12,32 @@ footer{
     justify-content: space-around;
     width: 80%;
 }
-
+.footer-firstpart > .footerpagesite > a{
+    display: block;
+}
 .footer-secondpart{
     height: 27px;
     width: 100%;
     text-align: center;
     background-color: #159CDC;
     color: white;
+    position: relative;
+}
+.footer-secondpart > span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.footer-secondpart > a{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: block;
 }
 .footer-secondpart > div{
     width: 375px;
-}
-.footerpagesite a{
-    display: block;
 }
 .footer-rs > a{
     font-size: 30px;
