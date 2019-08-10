@@ -14,28 +14,31 @@
         <h1>{{ video.name }}</h1>
         <span>date : {{video.date ? video.date|date('d/m/Y H:i:s') : '' }}</span>
         <iframe width="100%" height="400px" src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
+        <div class="video-noteContainer">
         {% set somme = 0 %}
         {% for note in video.notes %} 
             {% set somme = somme + note.note %}
         {% endfor %}
         {% if somme == 0 %}
-            <div class="video-noteContainer">
                 <div class="barrenote"><div style="width:0%;" ></div></div>
                 <div class="moyNote">0 / 5</div>
                 <div class="nbNote">0 avis</div>
                 <button id="buttonVote" class="button1 buttonvote">Votez</button>
-            </div>
         {% else %}
             {% set somme = somme / video.notes|length %}
-            <div class="video-noteContainer">
                 {% set Poucent = somme * 20 %}
                 <div class="barrenote"><div style="width:{{ Poucent }}%;" ></div></div>
                 <div class="moyNote">{{ somme|round(1, 'common') }} / 5</div>
                 <div class="nbNote">{{ video.notes|length }} avis</div>
                 <button id="buttonVote" class="button1 buttonvote">Votez</button>
-            </div>
         {% endif %}
+        </div>
+
+        <div class="partage-rs">
+            <a target="_blank" title="Facebook" href="https://www.facebook.com/sharer.php?u=https://tontonduweb.com/previews-warc/genieCivil/article1.html" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"><i class="fab fa-facebook-square"></i></a>
+            <a target="_blank" title="Twitter" href="https://twitter.com/share?url=https://bit.ly/2sI7H3v" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"><i class="fab fa-twitter-square"></i></a>
+            <a target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://tontonduweb.com/previews-warc/genieCivil/article1.html" rel="nofollow" onclick="javascript:window.open(this.href, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes');return false;"><i class="fab fa-linkedin"></i></a>
+        </div>
 
 
         <div id="modalVote">
