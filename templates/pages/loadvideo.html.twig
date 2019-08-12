@@ -1,7 +1,7 @@
         {% for video in videos  %}
             <a href="video/{{ video.id }}">
                 <img src="https://img.youtube.com/vi/{{ video.link }}/0.jpg" alt="{{ video.name }}"/>
-                <span class="annuaire-dateVideo" >{{video.date ? video.date|date('d/m/Y H:i:s') : '' }}</span>
+                <span class="annuaire-dateVideo" ><i class="far fa-calendar-alt"></i> {{video.date ? video.date|date('d/m/Y') : '' }}</span>
                 <span class="annuaire-titreVideo">{{ video.name }}</span>
                 <div class="annuaire-noteContainer">
                     <div class="barrenote"><div style="width:50%;" ></div></div>
