@@ -1,6 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello VideoController!{% endblock %}
+{% block meta %}
+    <title>Studio 360 Video - {{ video.name }} </title>
+    <meta name="description" content="{{ video.description }}" />
+    <meta name="author" content="Louis Réjou" />
+    <meta name="keywords" content="video, 360, realitée virtuel, youtube, note, description, louis réjou, HD, vr, partage">
+
+    <meta property="og:title" content="Studio 360 Video - {{ video.name }} " />
+    <meta property="og:description" content="{{ video.description }}" />
+    <meta property="og:image" content="https://img.youtube.com/vi/{{ video.link }}/0.jpg" />
+
+    <meta name="twitter:title" content="Studio 360 Video - {{ video.name }} ">
+    <meta name="twitter:description" content="{{ video.description }}">
+{% endblock %}
 
 {% block stylesheets %}  
     <link href="{{ asset('css/video.css') }}" rel="stylesheet" />

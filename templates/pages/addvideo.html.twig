@@ -1,5 +1,17 @@
 {% extends 'base.html.twig'%}
 
+{% block meta %}
+    <title>Studio 360 Video - Ajouter une vidéo</title>
+    <meta name="description" content="Studio 360 Video - Ajouter une vidéo 360° directement sur notre site internet." />
+    <meta name="author" content="Louis Réjou" />
+    <meta name="keywords" content="video, 360, realitée virtuel, youtube, note, description, louis réjou, HD, vr, partage">
+
+    <meta property="og:title" content="Studio 360 Video - Ajouter une vidéo" />
+    <meta property="og:description" content="Studio 360 Video - Ajouter une vidéo 360° directement sur notre site internet." />
+
+    <meta name="twitter:title" content="Studio 360 Video - Ajouter une vidéo">
+    <meta name="twitter:description" content="Studio 360 Video - Ajouter une vidéo 360° directement sur notre site internet.">
+{% endblock %}
 
 {% block stylesheets %}  
     <link href="{{ asset('css/addvideo.css') }}" rel="stylesheet" />
