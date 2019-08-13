@@ -84,11 +84,16 @@ class HomeController extends AbstractController
 
         if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('description')) && !empty($request->get('link'))){
 
+            $url = $request->get('link');
+            $url = parse_url($url, PHP_URL_QUERY);
+            $url=substr($url,-strlen($url)+2); 
+
+
             $video3D = new videouser();
             $video3D->setName($request->get('titre'));
             $video3D->setNickname($request->get('pseudo'));
             $video3D->setDescription($request->get('description'));
-            $video3D->setLink($request->get('link'));
+            $video3D->setLink($url);
             //$video3D->setDate($date);
     
             $em = $this->getDoctrine()->getManager();
