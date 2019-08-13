@@ -53,7 +53,9 @@
     top: 12px;
     left: 2%;
 }
-
+.video-container > p{
+    word-wrap: break-word;
+}
 .buttonvote{
     position: absolute;
     font-size: 12px;
@@ -165,5 +167,36 @@
     100%{
         top: 50%;
         opacity: 1;
+    }
+}
+
+
+@media screen and (max-width: 1060px) {
+    .video-container{
+        width: 100%;
+    }
+    .video-container > h1{
+        text-align: center;
+    }
+    .video-container > span{
+        display: block;
+        text-align: center;
+    }
+    .video-container > iframe{
+        width: 100%;
+    }
+    .video-container > p{
+        padding: 0px 10px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .video-container > iframe{
+        height: 300px;
+    }
+    .video-noteContainer{
+        margin: 0 auto;
+    }
+    .partage-rs{
+        margin: 10px auto;
     }
 }

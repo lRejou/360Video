@@ -64,3 +64,32 @@ header > div > div > a{
 .video-container > .video-div-button{
     text-align: center;
 }
+
+@media screen and (max-width: 1024px) {
+    .container > div{
+        width: 90%;
+    }
+    .video-container > .video-div-iframe{
+        width: 100%;
+    }
+    .video-container > .video-div-iframe > iframe{
+        width: 100%;
+    }
+    header > div > h1{
+        display: none;
+    }
+    header > div > div{
+        margin: 0 auto;
+        width: 300px;
+        height: 60px;
+        line-height: 60px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .video-container > .video-div-button > a{
+        display: block;
+        width: 250px;
+        margin: 20px auto;
+    }
+}

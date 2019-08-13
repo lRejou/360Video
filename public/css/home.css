@@ -67,6 +67,9 @@ Slider Home Page
     font-size: 18px;
     margin: 20px 0px;
 }
+.home-entete-tablette{
+    display: none;
+}
 @keyframes AnimrightMain{
     0%{
         left : 0;
@@ -114,6 +117,7 @@ Slider Home Page
     height: auto;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .topVideo > div .topVideo_div{
     width: 200px;
@@ -164,4 +168,29 @@ Slider Home Page
 }
 .link-rs > a[title=Linkedin]{
     color: #006599;
+}
+
+
+
+@media screen and (max-width: 750px) {
+    .slider{
+        display: none;
+    }
+    .home-entete-tablette{
+        display: block;
+        height: auto;
+        width: 100%;
+        background-color: #42382B;
+        padding: 20px 0px;
+        text-align: center;
+    }
+    .home-entete-tablette > span{
+        font-size: 20px;
+        display: block;
+        color: white;
+        padding: 10px 0;
+    }
+    .home-entete-tablette > .titre1{
+        font-size: 30px;
+    }
 }

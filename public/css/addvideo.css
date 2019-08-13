@@ -8,6 +8,7 @@
 
 .container-addvideo{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     width: 80%;
     margin: 50px auto;
@@ -37,10 +38,12 @@
 
 
 
-
+.addvideo-tuto{
+    margin: 20px 0;
+}
 .addvideo-tuto > div{
     height: auto;
-    width: 300px;
+    width: 100%;
     background-color: white;
     box-shadow: 0px 5px 7px grey;
     padding: 30px 20px ;
@@ -48,5 +51,17 @@
 .addvideo-tuto p {
     font-size: 12px;
     padding: 25px 0px;
+}
+
+@media screen and (max-width: 600px) {
+    .container-addvideo > div{
+        width: 90%;
+    }
+    .addvideo-tuto > div{
+        padding: 30px 0px ;
+    }
+    .addvideo-form > form > div > input[type=text] , textarea{
+        width: 100%;
+    }
 }
 

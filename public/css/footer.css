@@ -45,3 +45,41 @@ footer{
     text-decoration: none;
     color: #159CDC;
 }
+
+
+@media screen and (max-width: 930px) {
+    .footer-firstpart{
+        height: auto;
+        display: block;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 500px) {
+    .footer-firstpart{
+        height: auto;
+        display: block;
+        text-align: center;
+    }
+    .footer-firstpart > div{
+        width: 100%;
+        margin: 20px auto;
+    }
+    .footer-firstpart > div > img{
+        width: 60%;
+    }
+
+    .footer-secondpart{
+        height: 50px;
+    }
+    .footer-secondpart > span{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .footer-secondpart > a{
+        position: relative;
+        top: 0px;
+        right: 0;
+        margin: 10px auto;
+    }
+}

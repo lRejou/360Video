@@ -118,3 +118,26 @@ input[id=filtreNote]:checked ~ div > #checkboxNote > i{
     top: 12px;
     left: 5%;
 }
+
+
+@media screen and (max-width: 1300px) {
+    .annuaire-haut{
+        width: 100%;
+    }
+}
+@media screen and (max-width: 900px) {
+    .annuaire-haut{
+        display: block;
+    }
+    .annuaire-haut > div{
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+    .annuaire-haut > .title-annuaire{
+        text-align: center;
+    }
+    .annuaire-haut > .filtre-annuaire{
+        text-align: center;
+    }
+}

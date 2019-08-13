@@ -5,6 +5,7 @@ header{
 }
 header > div{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     height: 80px;
     width: 80%;
@@ -46,4 +47,40 @@ header > div > div > .header-addvideo{
 header > div > div > .header-addvideo:hover{
     border: solid 1px #159CDC;
     transition: .3s;
+}
+
+@media screen and (max-width: 1300px) {
+    header{
+        height: 80px;
+    }
+    header > div{
+        height: 80px;
+        width: 100%;
+    }
+}
+  @media screen and (max-width: 900px) {
+    header{
+        text-align: center;
+        height: 160px;
+    }
+    header > div{
+        height: 160px;
+    }
+    header > div > a{
+        margin: 0 auto;
+    }
+    header > div > div{
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 550px) {
+    header > div > a{
+        width: 100%;
+    }
+    header > div > a > img{
+        width: 70%;
+    }
+    header > div > div{
+        font-size: 12px;
+    }
 }
