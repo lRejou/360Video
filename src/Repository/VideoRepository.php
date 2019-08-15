@@ -38,13 +38,27 @@ class VideoRepository extends ServiceEntityRepository
     //  * @return Video[] Returns an array of Video objects
     //  */
     
-    public function findByNotes($start, $count)
+    public function findByNotes(Video $video, $start, $count)
     {
+        // Doit prendre les videos de $start sur un certain nombre
+        //exemple: de 0 à 10 ou de 11 à 20 , voir fonction findByDates
+        //Et les tier par nombre de vote ou par moyenne de vote
+        //Cette fonction est appeler dans la function loadVideo du HomeController
 
 
-        /*$dql = 'SELECT video.name , (AVG(note.note) From video JOIN note on note.id_video = video.id Group by video.name';
-        $query = $this->getEntityManager()->createQuery($dql);
-        return $query->execute();*/
+
+
+
+        /*return $this->createQueryBuilder('v')
+        //->select("*")
+        //->from("video")
+        //->setParameter('idvideo', 1)
+        ->setParameter('videoNote', $video->getNotes())
+        ->orderBy('count(videoNote)')
+        ->getQuery()
+        ->getResult()
+    ;*/
+
     }
     
 

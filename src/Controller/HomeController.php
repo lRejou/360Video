@@ -67,11 +67,11 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/cgu", name="cgu")
+     * @Route("/ml", name="cgu")
      */
-    public function cgu(): Response
+    public function ml(): Response
     {
-        return new Response($this->twig->render('pages/cgu.html.twig'));
+        return new Response($this->twig->render('pages/ml.html.twig'));
     }
 
     /**
@@ -85,9 +85,16 @@ class HomeController extends AbstractController
         if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('description')) && !empty($request->get('link'))){
 
             $url = $request->get('link');
-            $url = parse_url($url, PHP_URL_QUERY);
-            $url=substr($url,-strlen($url)+2); 
 
+            if( preg_match('/youtu.be/', $url) ){
+                $url = parse_url($url, PHP_URL_PATH);
+                $url=substr($url,-strlen($url)+1);
+            }
+            else{
+                $url = parse_url($url, PHP_URL_QUERY);
+                $url=substr($url,-strlen($url)+2);
+            }
+            var_dump($url);
 
             $video3D = new videouser();
             $video3D->setName($request->get('titre'));
