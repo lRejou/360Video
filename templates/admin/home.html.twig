@@ -4,10 +4,8 @@
 
 <div class="container">
     <div>
-        <h2>Proposition vidéos</h2>
+        <h2>Propositions de vidéos</h2>
         <div class="accueil-container">
-
-
 
         {% for videoUser in videosUser  %}
             <div>
@@ -16,7 +14,9 @@
             </div>
         {% endfor %}
 
-
+        {% if videosUser|length < 1 %}
+            <p>Aucune vidéo en attente de validation</p>
+        {% endif %}
         </div>
     </div>
 </div>
