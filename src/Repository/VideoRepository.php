@@ -38,7 +38,7 @@ class VideoRepository extends ServiceEntityRepository
     //  * @return Video[] Returns an array of Video objects
     //  */
     
-    public function findByNotes(Video $video, $start, $count)
+    public function findByNotes($start, $count)
     {
         // Doit prendre les videos de $start sur un certain nombre
         //exemple: de 0 à 10 ou de 11 à 20 , voir fonction findByDates
@@ -46,7 +46,15 @@ class VideoRepository extends ServiceEntityRepository
         //Cette fonction est appeler dans la function loadVideo du HomeController
 
 
-
+        return $this->createQueryBuilder('v')
+        ->from('App\Entity\Note','n')
+        ->groupBy('n.video')
+        ->orderBy('count(n.note)','ASC')
+        ->setFirstResult($start)
+        ->setMaxResults($count)
+        ->getQuery()
+        ->getResult()
+        ;
 
 
         /*return $this->createQueryBuilder('v')

@@ -47,4 +47,33 @@ class NoteRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findByNotes($start, $count)
+    {
+        // Doit prendre les videos de $start sur un certain nombre
+        //exemple: de 0 à 10 ou de 11 à 20 , voir fonction findByDates
+        //Et les tier par nombre de vote ou par moyenne de vote
+        //Cette fonction est appeler dans la function loadVideo du HomeController
+        
+        return $this->createQueryBuilder('n')
+        ->orderBy('count(n.note)', 'DESC')
+        ->groupBy('n.video')
+        ->setFirstResult($start)
+        ->setMaxResults($count)
+        ->getQuery()
+        ->getResult()
+        ;
+
+
+        /*return $this->createQueryBuilder('v')
+        //->select("*")
+        //->from("video")
+        //->setParameter('idvideo', 1)
+        ->setParameter('videoNote', $video->getNotes())
+        ->orderBy('count(videoNote)')
+        ->getQuery()
+        ->getResult()
+    ;*/
+
+    }
 }

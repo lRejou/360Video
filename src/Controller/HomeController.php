@@ -123,7 +123,7 @@ class HomeController extends AbstractController
                     'message' => $message
                 ]);
             }
-                                        
+
             $json = json_decode($response);
 
 
@@ -215,7 +215,7 @@ class HomeController extends AbstractController
         }
         else{
             $videos360 = $videoRepository->findByNotes($nbload, $count);
-            var_dump($videos360);
+            //var_dump($videos360['video']);
         }
 
     
