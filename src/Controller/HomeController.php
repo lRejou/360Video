@@ -86,6 +86,47 @@ class HomeController extends AbstractController
 
             $url = $request->get('link');
 
+            //recaptcha
+            $code = $request->get('g-recaptcha-response');
+            $ip = NULL;
+            if (empty($code)) {
+                $message = "error";
+                return $this->render('pages/validation.html.twig', [
+                    'message' => $message
+                ]);
+            }
+            $params = [
+                'secret'    => "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe",
+                'response'  => $code
+            ];
+            if( $ip ){
+                $params['remoteip'] = $ip;
+            }
+            $urlCaptcha = "https://www.google.com/recaptcha/api/siteverify?" . http_build_query($params);
+            if (function_exists('curl_version')) {
+                $curl = curl_init($urlCaptcha);
+                curl_setopt($curl, CURLOPT_HEADER, false);
+                curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($curl, CURLOPT_TIMEOUT, 1);
+                curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+                $response = curl_exec($curl);
+            } else {
+                $message = "error";
+                return $this->render('pages/validation.html.twig', [
+                    'message' => $message
+                ]);
+            }
+        
+            if (empty($response) || is_null($response)) {
+                $message = "error";
+                return $this->render('pages/validation.html.twig', [
+                    'message' => $message
+                ]);
+            }
+                                        
+            $json = json_decode($response);
+
+
             if( preg_match('/youtu.be/', $url) ){
                 $url = parse_url($url, PHP_URL_PATH);
                 $url=substr($url,-strlen($url)+1);
@@ -94,7 +135,6 @@ class HomeController extends AbstractController
                 $url = parse_url($url, PHP_URL_QUERY);
                 $url=substr($url,-strlen($url)+2);
             }
-            var_dump($url);
 
             $video3D = new videouser();
             $video3D->setName($request->get('titre'));

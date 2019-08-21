@@ -5,6 +5,9 @@
         {% block meta %}{% endblock %}
 
         <meta name="robots" content="index, nofollow">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
 
         <link href="{{ asset('css/main.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/header.css') }}" rel="stylesheet" />
@@ -50,7 +53,7 @@
                     <a href="/">Accueil</a>
                     <a href="/annuaire">Nos vidéos</a>
                     <a href="/addvideo">Ajouter une vidéo</a>
-                    <a href="/cgu">Mention Légales</a>
+                    <a href="/ml">Conditions générales d'utilisation</a>
                 </div>
             </div>
 

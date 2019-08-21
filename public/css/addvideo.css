@@ -38,6 +38,9 @@
     display: inline-block;
 }
 
+.g-recaptcha > div{
+    margin: 20px auto;
+}
 
 
 
