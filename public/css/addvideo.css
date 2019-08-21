@@ -24,6 +24,9 @@
 }
 .addvideo-form > form > div > input[type=text] , textarea{
     width: 300px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: solid 1px grey;
 }
 .addvideo-form > form > div > span{
     padding-top: 15px;

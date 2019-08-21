@@ -3,10 +3,30 @@
     height: auto;
     margin: 150px auto;
     text-align: center;
+
 }
 .container-login div{
     margin: 30px auto;
 }
 .container-login span{
     display: block;
+}
+.container-login > span{
+    color: grey;
+    font-size: 12px;
+}
+.container-login input{
+    font-size: 16px;
+}
+.container-login input[type=text]{
+    font-size: 16px;
+    border-radius: 3px;
+    border: solid 1px grey;
+    text-align: center;
+}
+.container-login input[type=password]{
+    font-size: 16px;
+    border-radius: 3px;
+    border: solid 1px grey;
+    text-align: center;
 }
