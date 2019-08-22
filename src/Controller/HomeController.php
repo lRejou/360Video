@@ -214,8 +214,13 @@ class HomeController extends AbstractController
             $videos360 = $videoRepository->findByDates($nbload, $count);
         }
         else{
-            $videos360 = $videoRepository->findByNotes($nbload, $count);
-            //var_dump($videos360['video']);
+            $videos360 = [];
+            $allVideoNote = $videoRepository->findByNotes($nbload, $count);
+            foreach($allVideoNote as $value){
+                $idvideo = intval($value['video_id']);
+                $oneVideo = $videoRepository->find($idvideo);
+                array_push($videos360, $oneVideo);
+            }
         }
 
     
