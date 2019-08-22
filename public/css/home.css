@@ -122,6 +122,7 @@ Slider Home Page
 .topVideo > div .topVideo_div{
     width: 200px;
     margin: 0 30px;
+    text-decoration: none;
 }
 .topVideo > div .topVideo_div img{
     width: 200px;
@@ -129,6 +130,7 @@ Slider Home Page
 .topVideo > div .topVideo_div span{
     font-size: 13px;
     display: block;
+    color: #159CDC;
 }
 
 

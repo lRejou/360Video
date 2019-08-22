@@ -32,9 +32,19 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="index")
      */
-    public function index(): Response
+    public function index(VideoRepository $videoRepository): Response
     {
-        return new Response($this->twig->render('pages/home.html.twig'));
+        $videos360 = [];
+        $allVideoNote = $videoRepository->findByNotes(0, 3);
+        foreach($allVideoNote as $value){
+            $idvideo = intval($value['video_id']);
+            $oneVideo = $videoRepository->find($idvideo);
+            array_push($videos360, $oneVideo);
+        }
+
+        return new Response($this->twig->render('pages/home.html.twig', [
+            'videos' => $videos360
+        ]));
     }
 
     /**

@@ -68,18 +68,12 @@
         <h2>Nos vidéos les plus notées</h2>
 
         <div>
-            <div class="topVideo_div">
-                <img src="https://img.youtube.com/vi/tgwW2RnqYcY/0.jpg" alt="image vidéo top 1"/>
-                <span>Vidéo 360° : Visitez des lieux touristiques grâce à la technologie d'Inception</span>
-            </div>
-            <div class="topVideo_div">
-                <img src="https://img.youtube.com/vi/-xNN-bJQ4vI/0.jpg" alt="image vidéo top 2"/>
-                <span>Mega Coaster: Get Ready for the Drop (360 Video)</span>
-            </div>
-            <div class="topVideo_div">
-                <img src="https://img.youtube.com/vi/-_nhjmLeGYw/0.jpg" alt="image vidéo top 3"/>
-                <span>Dunkerque - 360° Vidéo Expérience - Gardez votre souffle</span>
-            </div>
+            {% for video in videos  %}
+            <a class="topVideo_div" href="video/{{ video.id }}">
+                <img src="https://img.youtube.com/vi/{{ video.link }}/0.jpg" alt="image vidéo : {{ video.name }}"/>
+                <span>{{ video.name }}</span>
+            </a>
+            {% endfor %}
         </div>
         <a class="button1" href="/annuaire"> <i class="fas fa-film"></i> Voir plus de vidéos</a>
     </div>
