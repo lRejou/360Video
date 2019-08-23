@@ -182,8 +182,9 @@ Slider Home Page
         display: block;
         height: auto;
         width: 100%;
-        background-color: #42382B;
-        padding: 20px 0px;
+        background: linear-gradient(#159CDC, rgb(18, 123, 172));
+        padding: 60px 0px;
+        margin: 10px auto;
         text-align: center;
     }
     .home-entete-tablette > span{
