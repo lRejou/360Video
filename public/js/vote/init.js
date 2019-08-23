@@ -21,6 +21,9 @@ $( "#buttonVote" ).click(function() {
 $( ".buttonClose" ).click(function() {
     closeModal();
 });
+$( "#closemodal" ).click(function() {
+    closeModal();
+});
 
 
 function voteAjax(page, note){
