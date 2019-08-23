@@ -1,0 +1,36 @@
+{% extends 'baseadmin.html.twig'%}
+
+{% block body%}
+
+<div class="container">
+    <div>
+        <h2>Modifier votre nom d'utilisateur</h2>
+        <form action="settingusername" method="post">
+            <div>
+                <span>Nouveau nom d'utilisateur</span>
+                <input type="text" name="nomUtilisateur" required/>
+            </div>
+            <div>
+                <span>Confirmez votre nouveau nom d'utilisateur</span>
+                <input type="text" name="nomUtilisateur2" required/>
+            </div>
+            <input type="submit" class="button1"/>
+        </form>
+
+
+        <h2>Modifier votre nom mot de passe</h2>
+        <form action="settingpassword" method="post">
+            <div>
+                <span>Nouveau mot de passe</span>
+                <input type="password" name="password" required/>
+            </div>
+            <div>
+                <span>Confirmez votre nouveau mot de passe</span>
+                <input type="password" name="password2" required/>
+            </div>
+            <input type="submit" class="button1"/>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -106,7 +106,7 @@ class HomeController extends AbstractController
                 ]);
             }
             $params = [
-                'secret'    => "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe",
+                'secret'    => "6LcyhbQUAAAAAGJaBBeveehqskL9NZ_isYNmigN4",
                 'response'  => $code
             ];
             if( $ip ){

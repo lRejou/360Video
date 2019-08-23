@@ -10,6 +10,7 @@ use App\Entity\VideoUser;
 use App\Repository\VideoUserRepository;
 use App\Entity\Video;
 use App\Repository\VideoRepository;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 /**
  * @Route("/admin")
@@ -87,6 +88,33 @@ class AdminController extends AbstractController
         $em->flush();
 
         return $this->render('admin/deleteVideo.html.twig');
+    }
+
+    /**
+     * @Route("/setting", name="admin_setting")
+     */
+    public function setting(): Response
+    {
+        return new Response($this->twig->render('admin/setting.html.twig'));
+    }
+
+    /**
+     * @Route("/settingusername", name="admin_settingusername", methods={"POST" , "GET"})
+     */
+    public function settingUsername(Request $request)
+    {
+        $username = $request->get('nomUtilisateur');
+        $usernameconfirme = $request->get('nomUtilisateur2');
+        if($username == $usernameconfirme){
+            // modifier le nom admin
+
+            return $this->render('admin/settingUsername.html.twig');
+        }
+        else{
+
+
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques"]);
+        }
     }
 
 }
