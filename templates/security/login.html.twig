@@ -12,7 +12,7 @@
         <h1>Connexion</h1>
         <span>Inferface Administrateur</span>
         {% if error %}
-        {{ error.messageKey | trans(error.messagedata, 'security') }}
+            Email ou mot de passe incorrect.
         {% endif %}
 
         <form action="{{ path('login') }}" method="post">

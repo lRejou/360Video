@@ -7,20 +7,20 @@
                 <div class="annuaire-noteContainer">
                 {% set somme = 0 %}
 
-                {% for note in video.notes %} 
+                {% for note in video.notes %}
                     {% set somme = somme + note.note %}
                 {% endfor %}
 
                 {% if somme == 0 %}
                     <div class="barrenote"><div style="width:50%;" ></div></div>
                 {% else %}
-                {% set somme = somme / video.notes|length %}
-                {% set Poucent = somme * 20 %}
-                    <div class="barrenote"><div style="width:{{ Poucent }}%;" ></div></div>
+                    {% set somme = somme / video.notes|length %}
+                    {% set Poucent = somme * 20 %}
+                        <div class="barrenote"><div style="width:{{ Poucent }}%;" ></div></div>
                 {% endif %}
                 
 
-                
+                {% set somme = 0 %}
                     <div class="moyNote">
                     {% for note in video.notes %} 
                         {% set somme = somme + note.note %}
@@ -28,8 +28,8 @@
                     {% if somme == 0 %}
                         0
                     {% else %}
-                        {% set somme = somme / video.notes|length %}
-                        {{ somme|round(1, 'common') }}
+                        {% set moy = somme / video.notes|length %}
+                        {{ moy|round(1, 'common') }}
                     {% endif %}
                     
                     
