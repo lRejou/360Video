@@ -129,7 +129,7 @@ class AdminController extends AbstractController
             return $this->render('admin/settingUsername.html.twig');
         }
         else{
-            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques", "type" => "username"]);
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux noms d'utilisateur doivent être identiques", "type" => "username"]);
         }
     }
 
@@ -143,9 +143,6 @@ class AdminController extends AbstractController
         $passwordconfirme = $request->get('password2');
         if($password == $passwordconfirme){
             
-
-            var_dump("password");
-            
             $userId = $user->getId();
             $admin =  $adminRepository->findOneBy(['id' => $userId]);
             $admin->setPassword($this->encoder->encodePassword($admin, $password));
@@ -157,7 +154,32 @@ class AdminController extends AbstractController
             return $this->render('admin/settingPassword.html.twig');
         }
         else{
-            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques", "type" => "password"]);
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux mots de passe doivent être identiques", "type" => "password"]);
+        }
+    }
+
+        /**
+     * @Route("/adduser", name="admin_adduser", methods={"POST" , "GET"})
+     */
+    public function settingAddUser(Request $request, UserInterface $user, AdminRepository $adminRepository)
+    {
+        $username = $request->get('nomUtilisateur');
+        $password = $request->get('password');
+        $passwordconfirme = $request->get('password2');
+        if($password == $passwordconfirme){
+            
+            $admin = new admin();
+            $admin->setusername($username);
+            $admin->setPassword($this->encoder->encodePassword($admin, $password));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($admin);
+            $em->flush();
+
+            return $this->render('admin/settingadduser.html.twig');
+        }
+        else{
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux mots de passe doivent être identiques", "type" => "newuser"]);
         }
     }
 

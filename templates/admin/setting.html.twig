@@ -36,6 +36,26 @@
             </div>
             <input type="submit" class="button1" value="modifier"/>
         </form>
+
+        <h2>Créer un nouvelle utilisateur</h2>
+        {% if type == "newuser" %}
+        <span class="error">{{ msg }}</span>
+        {% endif %}
+        <form action="adduser" method="post">
+            <div>
+                <span>Nom d'utilisateur</span>
+                <input type="text" name="nomUtilisateur" required/>
+            </div>
+            <div>
+                <span>Mot de passe</span>
+                <input type="password" name="password" required/>
+            </div>
+            <div>
+                <span>Confirmez le mot de passe</span>
+                <input type="password" name="password2" required/>
+            </div>
+            <input type="submit" class="button1" value="modifier"/>
+        </form>
     </div>
 </div>
 
