@@ -73,7 +73,17 @@ class HomeController extends AbstractController
      */
     public function addvideo(): Response
     {
-        return new Response($this->twig->render('pages/addvideo.html.twig'));
+
+        if($_SERVER['APP_ENV'] == 'dev'){
+            $key = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";
+        }
+        else{
+            $key = "6LcyhbQUAAAAAKd_Gzb4-wURPFZyYwxpEf5ILRMO";
+        }
+
+        return $this->render('pages/addvideo.html.twig', [
+            "key" => $key
+        ]);
     }
 
     /**
@@ -105,8 +115,16 @@ class HomeController extends AbstractController
                     'message' => $message
                 ]);
             }
+
+            if($_SERVER['APP_ENV'] == 'dev'){
+                $secretkey = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";
+            }
+            else{
+                $secretkey = "6LcyhbQUAAAAAGJaBBeveehqskL9NZ_isYNmigN4";
+            }
+
             $params = [
-                'secret'    => "6LcyhbQUAAAAAGJaBBeveehqskL9NZ_isYNmigN4",
+                'secret'    => $secretkey,
                 'response'  => $code
             ];
             if( $ip ){
