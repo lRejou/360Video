@@ -33,7 +33,7 @@
 
     <div class="container-addvideo">
         <div class="addvideo-form">
-            <form action="{{ path('validation') }}" method="post" name="formulaire_addvideo">
+            <form action="{{ path('validation') }}" method="post" name="formulaire_addvideo" onsubmit="return checkForm(this);">
                 <div>
                     <span>Votre pseudo</span>
                     <input type="text" name="pseudo" required="required"/>
@@ -75,5 +75,18 @@
 
 
 </div>
+
+<script>
+  function checkForm(form)
+  {
+    if(!form.cgu.checked) {
+      alert("Please indicate that you accept the Terms and Conditions");
+      form.cgu.focus();
+      return false;
+    }
+    return true;
+  }
+</script>
+</script>
 
 {% endblock %}
