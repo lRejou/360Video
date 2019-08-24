@@ -11,6 +11,8 @@
 
     <meta name="twitter:title" content="Studio 360 Video - Ajouter une vidéo">
     <meta name="twitter:description" content="Studio 360 Video - Ajouter une vidéo 360° directement sur notre site internet.">
+
+    <script src="https://cdn.ckeditor.com/4.12.1/basic/ckeditor.js"></script>
 {% endblock %}
 
 {% block stylesheets %}  
@@ -48,7 +50,10 @@
                 </div>
                 <div>
                     <span>Description de la vidéo</span>
-                    <textarea name="description" required="required"></textarea>
+                    <textarea id="editor" name="editor1" required="required" ></textarea>
+                    <script>
+                        CKEDITOR.replace( 'editor1' );
+                    </script>
                 </div>
                 <div class="addvideo-cgu">
                     <input type="checkbox" name="cgu" required="required"><span class="spancgu">J'accepte les <a href="/ml" target="_blank">Conditions Générales d'Utilisation</a></span>

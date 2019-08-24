@@ -22,11 +22,15 @@
     text-align: left;
     display: block;
 }
-.addvideo-form > form > div > input[type=text] , textarea{
+.addvideo-form > form > div > input[type=text] , #cke_editor{
     width: 300px;
     font-size: 16px;
     border-radius: 3px;
     border: solid 1px grey;
+}
+#cke_editor{
+    width: 300px;
+    margin: 0 auto;
 }
 .addvideo-form > form > div > span{
     padding-top: 15px;

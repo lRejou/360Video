@@ -167,7 +167,7 @@ class HomeController extends AbstractController
             $video3D = new videouser();
             $video3D->setName($request->get('titre'));
             $video3D->setNickname($request->get('pseudo'));
-            $video3D->setDescription($request->get('description'));
+            $video3D->setDescription($request->get('editor1'));
             $video3D->setLink($url);
             //$video3D->setDate($date);
     
