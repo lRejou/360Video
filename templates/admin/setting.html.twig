@@ -3,8 +3,11 @@
 {% block body%}
 
 <div class="container">
-    <div>
+    <div class="admin-setting" >
         <h2>Modifier votre nom d'utilisateur</h2>
+        {% if type == "username" %}
+        <span class="error">{{ msg }}</span>
+        {% endif %}
         <form action="settingusername" method="post">
             <div>
                 <span>Nouveau nom d'utilisateur</span>
@@ -14,11 +17,14 @@
                 <span>Confirmez votre nouveau nom d'utilisateur</span>
                 <input type="text" name="nomUtilisateur2" required/>
             </div>
-            <input type="submit" class="button1"/>
+            <input type="submit" class="button1" value="modifier"/>
         </form>
 
 
         <h2>Modifier votre nom mot de passe</h2>
+        {% if type == "password" %}
+        <span class="error">{{ msg }}</span>
+        {% endif %}
         <form action="settingpassword" method="post">
             <div>
                 <span>Nouveau mot de passe</span>
@@ -28,7 +34,7 @@
                 <span>Confirmez votre nouveau mot de passe</span>
                 <input type="password" name="password2" required/>
             </div>
-            <input type="submit" class="button1"/>
+            <input type="submit" class="button1" value="modifier"/>
         </form>
     </div>
 </div>

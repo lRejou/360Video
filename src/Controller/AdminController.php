@@ -10,7 +10,11 @@ use App\Entity\VideoUser;
 use App\Repository\VideoUserRepository;
 use App\Entity\Video;
 use App\Repository\VideoRepository;
+use App\Entity\Admin;
+use App\Repository\AdminRepository;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 /**
  * @Route("/admin")
@@ -22,9 +26,10 @@ class AdminController extends AbstractController
      */
     private $twig;
 
-    public function __construct(Environment $twig)
+    public function __construct(Environment $twig, UserPasswordEncoderInterface $encoder)
     {
         $this->twig = $twig;
+        $this->encoder = $encoder;
     }
 
     /**
@@ -95,25 +100,64 @@ class AdminController extends AbstractController
      */
     public function setting(): Response
     {
-        return new Response($this->twig->render('admin/setting.html.twig'));
+
+        /*if( %env(APP_ENV)% == DEV){
+
+        }*/
+
+
+        return new Response($this->twig->render('admin/setting.html.twig', ["msg" => "" , "type" => "username"]));
     }
 
     /**
      * @Route("/settingusername", name="admin_settingusername", methods={"POST" , "GET"})
      */
-    public function settingUsername(Request $request)
+    public function settingUsername(Request $request, UserInterface $user, AdminRepository $adminRepository)
     {
         $username = $request->get('nomUtilisateur');
         $usernameconfirme = $request->get('nomUtilisateur2');
         if($username == $usernameconfirme){
-            // modifier le nom admin
+            
+            $userId = $user->getId();
+            $admin =  $adminRepository->findOneBy(['id' => $userId]);
+            $admin->setusername($username);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($admin);
+            $em->flush();
 
             return $this->render('admin/settingUsername.html.twig');
         }
         else{
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques", "type" => "username"]);
+        }
+    }
 
 
-            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques"]);
+    /**
+     * @Route("/settingpassword", name="admin_settingpassword", methods={"POST" , "GET"})
+     */
+    public function settingPassword(Request $request, UserInterface $user, AdminRepository $adminRepository)
+    {
+        $password = $request->get('password');
+        $passwordconfirme = $request->get('password2');
+        if($password == $passwordconfirme){
+            
+
+            var_dump("password");
+            
+            $userId = $user->getId();
+            $admin =  $adminRepository->findOneBy(['id' => $userId]);
+            $admin->setPassword($this->encoder->encodePassword($admin, $password));
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($admin);
+            $em->flush();
+
+            return $this->render('admin/settingPassword.html.twig');
+        }
+        else{
+            return $this->render('admin/setting.html.twig' , ["msg" => "Les deux valeur doivent etre identiques", "type" => "password"]);
         }
     }
 
