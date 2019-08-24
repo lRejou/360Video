@@ -5,9 +5,23 @@
                 <span class="annuaire-dateVideo" ><i class="far fa-calendar-alt"></i> {{video.date ? video.date|date('d/m/Y') : '' }}</span>
                 <span class="annuaire-titreVideo">{{ video.name }}</span>
                 <div class="annuaire-noteContainer">
+                {% set somme = 0 %}
+
+                {% for note in video.notes %} 
+                    {% set somme = somme + note.note %}
+                {% endfor %}
+
+                {% if somme == 0 %}
                     <div class="barrenote"><div style="width:50%;" ></div></div>
+                {% else %}
+                {% set somme = somme / video.notes|length %}
+                {% set Poucent = somme * 20 %}
+                    <div class="barrenote"><div style="width:{{ Poucent }}%;" ></div></div>
+                {% endif %}
+                
+
+                
                     <div class="moyNote">
-                    {% set somme = 0 %}
                     {% for note in video.notes %} 
                         {% set somme = somme + note.note %}
                     {% endfor %}
