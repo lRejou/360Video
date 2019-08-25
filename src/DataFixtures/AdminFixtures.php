@@ -22,8 +22,8 @@ class AdminFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $admin = new Admin();
-        $admin->setUsername('louis');
-        $admin->setPassword($this->encoder->encodePassword($admin, 'louis'));
+        $admin->setUsername('admin');
+        $admin->setPassword($this->encoder->encodePassword($admin, 'admin'));
         $manager->persist($admin);
         $manager->flush();
     }

@@ -8,7 +8,8 @@
     <div class="video-div-iframe">
         <iframe src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <p>{{ video.description }}</p>
+    <p>{{ video.description|raw }}</p>
+
 
     <div class="video-div-button">
         <a class="button1" href="../validationVideoAdmin/{{ video.id }}">Valider cette vidéo</a>
