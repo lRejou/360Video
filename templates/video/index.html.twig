@@ -25,7 +25,7 @@
     <div class="video-container">
         <h1>{{ video.name }}</h1>
         <span><i class="far fa-calendar-alt"></i> {{video.date ? video.date|date('d/m/Y') : '' }}</span>
-        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div id="player"></div>
         <div class="video-noteContainer">
         {% set somme = 0 %}
         {% for note in video.notes %} 
@@ -78,6 +78,39 @@
 
 <script>
     var page = {{ video.id }};
+</script>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+    let player;
+    let panStarted = false;
+
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+            videoId: '{{ video.link }}',
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+    }
+
+    // Start animation when video starts playing.
+    function onPlayerStateChange(event) {
+        if (event.data == 1 && !panStarted) {
+            requestAnimationFrame(panVideo);
+            panStarted = true;
+        }
+    }
+
+    function panVideo() {
+        player.setSphericalProperties({
+            yaw: yaw,
+            pitch: pitch
+        });
+        requestAnimationFrame(panVideo);
+    }
 </script>
 
 
