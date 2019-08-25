@@ -102,7 +102,7 @@ class HomeController extends AbstractController
         //$date = new \DateTime();
         //$currentDate = $date->format('Y-m-d');
 
-        if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('description')) && !empty($request->get('link'))){
+        if(!empty($request->get('titre')) && !empty($request->get('pseudo')) && !empty($request->get('link'))){
 
             $url = $request->get('link');
 

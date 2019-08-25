@@ -37,20 +37,20 @@
         <div class="addvideo-form">
             <form action="{{ path('validation') }}" method="post" name="formulaire_addvideo" onsubmit="return checkForm(this);">
                 <div>
-                    <span>Votre pseudo</span>
+                    <span>Votre pseudo *</span>
                     <input type="text" name="pseudo" required="required"/>
                 </div>
                 <div>
-                    <span>Titre de la vidéo</span>
+                    <span>Titre de la vidéo *</span>
                     <input type="text" name="titre" required="required"/>
                 </div>
                 <div>
-                    <span>Lien de la vidéo (Youtube)</span>
+                    <span>Lien de la vidéo (Youtube) *</span>
                     <input type="text" name="link" required="required"/>
                 </div>
                 <div>
                     <span>Description de la vidéo</span>
-                    <textarea id="editor" name="editor1" required="required" ></textarea>
+                    <textarea id="editor" name="editor1"></textarea>
                     <script>
                         CKEDITOR.replace( 'editor1' );
                     </script>
