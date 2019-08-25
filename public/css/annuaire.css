@@ -115,7 +115,7 @@ input[id=filtreNote]:checked ~ div > #checkboxNote > i{
     position: absolute;
     font-size: 12px;
     color: grey;
-    top: 14px;
+    top: 15px;
     left: 5%;
 }
 

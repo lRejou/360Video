@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    <title>Not Found</title>
+{% endblock %}
+
+{% block stylesheets %}  
+    <link href="{{ asset('css/video.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+
+
+<div style="height:600px;padding:50px;text-align:center;">
+    <h1>Vidéo introuvable ! </h1>
+    <a href="/annuaire" class="button1">Retour à la liste des vidéos</a>
+</div>
+
+
+{% endblock %}
