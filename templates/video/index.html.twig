@@ -25,7 +25,7 @@
     <div class="video-container">
         <h1>{{ video.name }}</h1>
         <span><i class="far fa-calendar-alt"></i> {{video.date ? video.date|date('d/m/Y') : '' }}</span>
-        <div id="player"></div>
+        <iframe width="100%" height="400px" src="https://www.youtube.com/embed/{{ video.link }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="video-noteContainer">
         {% set somme = 0 %}
         {% for note in video.notes %} 
@@ -105,6 +105,10 @@
     }
 
     function panVideo() {
+        // 20 seconds per rotation.
+        const yaw = (performance.now() / 1000 / 20 * 360) % 360;
+        // 2 up-down cycle per rotation.
+        const pitch = 20 * Math.sin(2 * yaw / 360 * 2 * Math.PI);
         player.setSphericalProperties({
             yaw: yaw,
             pitch: pitch
