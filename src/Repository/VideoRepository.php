@@ -38,22 +38,23 @@ class VideoRepository extends ServiceEntityRepository
     {
         $conn = $this->getEntityManager()->getConnection();
 
-
-        /*
         $sql='
-        SELECT video_id,COUNT(video_id),SUM(note)
+        SELECT video_id, sum( note ) / count( note ) AS notes
         FROM note
         GROUP BY video_id
-        ORDER BY SUM(note) DESC
-        LIMIT '.$count.' OFFSET '.$start.'';
-        */
+        UNION
+        SELECT id, 0 AS notes
+        FROM video
+        WHERE id NOT
+        IN (
 
-        $sql='
-        select video_id, sum(note)/count(note) as notee
-        from note
-        group by video_id
-        order by notee desc
+        SELECT video_id
+        FROM note
+        )
+        ORDER BY notes DESC
         LIMIT '.$count.' OFFSET '.$start.'';
+
+
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $videos = $stmt->fetchAll();
