@@ -58,9 +58,10 @@ class AdminController extends AbstractController
     /**
      * @Route("/validationVideoAdmin/{id}", name="admin_Valisationvideo", methods={"GET"})
      */
-    public function validationVideo(VideoUserRepository $videoUserRepository, VideoUser $videoUser, VideoRepository $videoRepository, Video $video): Response
+    public function validationVideo(VideoUserRepository $videoUserRepository, VideoRepository $videoRepository, Video $video): Response
     {
-        $video =  $videoUserRepository->findOneBy(['id' => $videoUser->getId()]);
+        $tab = explode('/', $_SERVER['REQUEST_URI']);
+        $video =  $videoUserRepository->findOneBy(['id' => $tab[3]]);
 
         $date = new \DateTime();
 
